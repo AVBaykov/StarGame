@@ -1,58 +1,43 @@
 package ru.geekbrains.screen;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 
-import ru.geekbrains.base.Base2DScreen;
-import ru.geekbrains.math.Rect;
-import ru.geekbrains.sprite.Background;
+import ru.geekbrains.sprite.MainShip;
 
-public class GameScreen extends Base2DScreen {
+public class GameScreen extends StarScreen {
 
-    private Background background;
-    private Texture backgroundTexture;
-    private TextureAtlas atlas;
+    private MainShip mainShip;
+
+    public GameScreen(Game game) {
+        super(game);
+    }
 
     @Override
-    public void show() {
-        super.show();
-        backgroundTexture = new Texture("textures/bg.png");
-        background = new Background(new TextureRegion(backgroundTexture));
+    protected void screenItemsResize() {
+        mainShip.resize(worldBounds);
+    }
+
+    @Override
+    public void atlasInit() {
         atlas = new TextureAtlas("textures/mainAtlas.tpack");
     }
 
     @Override
-    public void resize(Rect worldBounds) {
-        super.resize(worldBounds);
-        background.resize(worldBounds);
+    public void screenItemsInit() {
+        mainShip = new MainShip(atlas);
     }
 
     @Override
-    public void render(float delta) {
-        super.render(delta);
-        update(delta);
-        draw();
-    }
-
-    private void update(float delta) {
-
-    }
-
-    private void draw() {
-        Gdx.gl.glClearColor(0.51f, 0.34f, 0.64f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
-        background.draw(batch);
-        batch.end();
+    public void screenItemsDraw() {
+        mainShip.draw(batch);
+        mainShip.update();
     }
 
     @Override
-    public void dispose() {
-        backgroundTexture.dispose();
-        atlas.dispose();
-        super.dispose();
+    public boolean touchDown(Vector2 touch, int pointer) {
+        mainShip.touchDown(touch, pointer);
+        return false;
     }
 }
