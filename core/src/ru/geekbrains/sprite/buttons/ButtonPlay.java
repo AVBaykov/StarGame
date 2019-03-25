@@ -1,4 +1,4 @@
-package ru.geekbrains.sprite;
+package ru.geekbrains.sprite.buttons;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

@@ -1,10 +1,13 @@
-package ru.geekbrains.sprite;
+package ru.geekbrains.sprite.ships;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import ru.geekbrains.base.Sprite;
 import ru.geekbrains.math.Rect;
+import ru.geekbrains.pool.BulletPool;
+import ru.geekbrains.sprite.Bullet;
 
 public class Ship extends Sprite {
 
@@ -14,10 +17,15 @@ public class Ship extends Sprite {
     protected Vector2 bulletV = new Vector2();
     protected float bulletHeight;
 
+    protected BulletPool bulletPool;
     protected TextureRegion bulletRegion;
     protected int damage;
     protected float hp;
 
+    protected Sound shootSound;
+
+    protected float reloadInterval;
+    protected float reloadTimer;
 
     public Ship() {
     }
@@ -36,4 +44,9 @@ public class Ship extends Sprite {
         pos.mulAdd(v, delta);
     }
 
+    public void shoot() {
+        Bullet bullet = bulletPool.obtain();
+        bullet.set(this, bulletRegion, pos, bulletV, bulletHeight, worldBounds, damage);
+        shootSound.play();
+    }
 }

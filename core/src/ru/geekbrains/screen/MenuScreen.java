@@ -12,8 +12,8 @@ import com.badlogic.gdx.math.Vector2;
 import ru.geekbrains.base.Base2DScreen;
 import ru.geekbrains.math.Rect;
 import ru.geekbrains.sprite.Background;
-import ru.geekbrains.sprite.ButtonExit;
-import ru.geekbrains.sprite.ButtonPlay;
+import ru.geekbrains.sprite.buttons.ButtonExit;
+import ru.geekbrains.sprite.buttons.ButtonPlay;
 import ru.geekbrains.sprite.Star;
 
 public class MenuScreen extends Base2DScreen {
