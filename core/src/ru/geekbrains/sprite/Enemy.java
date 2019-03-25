@@ -13,11 +13,6 @@ public class Enemy extends Ship {
         this.worldBounds = worldBounds;
     }
 
-    @Override
-    public void update(float delta) {
-        super.update(delta);
-    }
-
     public void set(
             TextureRegion[] regions,
             Vector2 v0,
