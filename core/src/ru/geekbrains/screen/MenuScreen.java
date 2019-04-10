@@ -12,9 +12,9 @@ import com.badlogic.gdx.math.Vector2;
 import ru.geekbrains.base.Base2DScreen;
 import ru.geekbrains.math.Rect;
 import ru.geekbrains.sprite.Background;
+import ru.geekbrains.sprite.Star;
 import ru.geekbrains.sprite.buttons.ButtonExit;
 import ru.geekbrains.sprite.buttons.ButtonPlay;
-import ru.geekbrains.sprite.Star;
 
 public class MenuScreen extends Base2DScreen {
 
@@ -67,8 +67,8 @@ public class MenuScreen extends Base2DScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
-       update(delta);
-       draw();
+        update(delta);
+        draw();
     }
 
     private void update(float delta) {
