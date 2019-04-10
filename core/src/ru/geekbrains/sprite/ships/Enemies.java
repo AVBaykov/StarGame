@@ -4,8 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 
 public enum Enemies {
     SMALL(0.1f, 0.01f, -0.3f, 1, 3f, 1, new Vector2(0f, -0.2f)),
-    AVERAGE(0.2f, 0.02f, -0.3f, 2, 2f, 2, new Vector2(0f, -0.2f)),
-    BIGONE(0.3f, 0.03f, -0.3f, 3, 3f, 3, new Vector2(0f, -0.2f));
+    AVERAGE(0.1f, 0.02f, -0.25f, 5, 4f, 5, new Vector2(0f, -0.03f)),
+    BIGONE(0.2f, 0.04f, -0.25f, 10, 1f, 10, new Vector2(0f, -0.005f));
 
     private final float ENEMY_HEIGHT;
     private final float ENEMY_BULLET_HEIGHT;
